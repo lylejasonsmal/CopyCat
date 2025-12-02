@@ -1,5 +1,6 @@
 package com.mugprintz.copycat.factory;
 
+import com.mugprintz.copycat.data.location.TestLocations;
 import com.mugprintz.copycat.data.printer.TestPrinters;
 import com.mugprintz.copycat.domain.MobilePrintStation;
 import com.mugprintz.copycat.domain.enums.DeviceStatus;
@@ -17,28 +18,31 @@ class MobilePrintStationFactoryTest {
     @Test
     void createMobilePrintStationWithAllFieldsPopulated() {
         //Act
-        MobilePrintStation mobilePrintStation = MobilePrintStationFactory.createMobilePrintStation(name, email, ipAddress, TestPrinters.SamsungA500());
+        MobilePrintStation mobilePrintStation = MobilePrintStationFactory.createMobilePrintStation(name, email, ipAddress, TestPrinters.SamsungA500(), TestLocations.WynbergCentre());
 
         //Print for visual inspection
         System.out.println(mobilePrintStation);
 
         //Assertions
-        assertNotNull(name);
+        assertNotNull(name,  mobilePrintStation.getName());
         assertEquals(name, mobilePrintStation.getName());
 
-        assertNotNull(email);
+        assertNotNull(email,  mobilePrintStation.getEmail());
         assertEquals(email, mobilePrintStation.getEmail());
 
-        assertNotNull(ipAddress);
+        assertNotNull(ipAddress, "IP Address is null");
         assertEquals(ipAddress, mobilePrintStation.getIpAddressV4());
 
-        assertNotNull(mobilePrintStation.getStatus());
+        assertNotNull(mobilePrintStation.getStatus(), "Status is null");
         assertEquals(DeviceStatus.ONLINE, mobilePrintStation.getStatus());
 
-        assertNotNull(mobilePrintStation.getUniqueId());
+        assertNotNull(mobilePrintStation.getUniqueId(),  "UniqueId is null");
 
-        assertNotNull(mobilePrintStation.getPrinter());
-        Assertions.assertEquals(TestPrinters.SamsungA500().getUniqueId(), mobilePrintStation.getPrinter().getUniqueId());
+        assertNotNull(mobilePrintStation.getPrinter(), "Printer is null");
+        assertEquals(TestPrinters.SamsungA500().getUniqueId(), mobilePrintStation.getPrinter().getUniqueId());
+
+        assertNotNull(mobilePrintStation.getLocation(), "Location is null");
+        assertEquals(TestLocations.WynbergCentre().getUniqueId(), mobilePrintStation.getLocation().getUniqueId());
 
     }
 }

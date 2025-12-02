@@ -10,7 +10,8 @@ public class TestPrinters extends Printer {
                 "PRN-SAMSUNG-A500",
                 "Samsung-A500",
                 DeviceStatus.ONLINE,
-                100
+                100,
+                1000
         );
     }
 }

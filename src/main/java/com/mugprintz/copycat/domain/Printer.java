@@ -14,5 +14,6 @@ public class Printer extends HasID {
         private String uniqueId;
         private String name;
         private DeviceStatus status;
-        private int paperQuantity;
+        private int currentAvailablePaperQuantity;
+        private int paperCapacity;
 }

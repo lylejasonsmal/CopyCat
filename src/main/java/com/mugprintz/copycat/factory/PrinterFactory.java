@@ -6,12 +6,13 @@ import com.mugprintz.copycat.util.UniqueIDGenerator;
 
 public class PrinterFactory {
 
-    public static Printer createPrinter(String name, int paperQuantity) {
+    public static Printer createPrinter(String name, int currentAvailablePaperQuantity, int paperCapacity) {
         return Printer.builder()
                 .name(name)
-                .paperQuantity(paperQuantity)
-                .status(DeviceStatus.ONLINE)
+                .currentAvailablePaperQuantity(currentAvailablePaperQuantity)
+                .status(DeviceStatus.OFFLINE)
                 .uniqueId(UniqueIDGenerator.generateUniqueID())
+                .paperCapacity(paperCapacity)
                 .build();
 
     }

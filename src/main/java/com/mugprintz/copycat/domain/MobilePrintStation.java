@@ -17,4 +17,5 @@ public class MobilePrintStation extends HasID {
     private String ipAddressV4;
     private DeviceStatus status;
     private Printer printer;
+    private Location location;
 }
