@@ -22,21 +22,23 @@ jobs:
           java-version: '21'
           # optional: enable automatic maven dependency caching provided by setup-java
           # cache: 'maven'
-
-      - name: Verify Java & Maven (diagnostic)
+      - name: Configure Maven Toolchain (JDK 21)
         run: |
-          echo "JAVA_HOME=$JAVA_HOME"
-          java -version
-          javac -version || true
-          mvn -v
-
-      - name: Cache Maven packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2
-
+          mkdir -p ~/.m2
+          cat <<EOF > ~/.m2/toolchains.xml
+          <toolchains>
+            <toolchain>
+              <type>jdk</type>
+              <provides>
+                <version>21</version>
+                <vendor>temurin</vendor>
+              </provides>
+              <configuration>
+                <jdkHome>${JAVA_HOME}</jdkHome>
+              </configuration>
+            </toolchain>
+          </toolchains>
+          EOF
+          
       - name: Run tests
         run: mvn -B test
