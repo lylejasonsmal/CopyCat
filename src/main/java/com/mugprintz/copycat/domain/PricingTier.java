@@ -14,7 +14,7 @@ public class PricingTier extends HasID {
 
     public double getPriceToBeApplied() {
         this.calculatePrice(); //initialize price
-        return this.priceToBeApplied;
+        return this.priceToBeApplied; //return price
     }
 
     public void calculatePrice(){
