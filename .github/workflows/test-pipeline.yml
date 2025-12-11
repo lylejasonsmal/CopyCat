@@ -37,6 +37,6 @@ jobs:
             </toolchain>
           </toolchains>
           EOF
-
-      - name: Run tests using toolchains
-        run: mvn -B -t ~/.m2/toolchains.xml test
+      
+      - name: Run tests
+        run: mvn -B test
