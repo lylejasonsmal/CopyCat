@@ -10,7 +10,7 @@ class PrinterFactoryTest {
     @Test
     void createPrinterWithAllFieldsPopulated() {
         //Act
-        Printer printer = PrinterFactory.createPrinter("Samsung-01AB", 10, 100);
+        Printer printer = PrinterFactory.createPrinter("Samsung-01AB", 10, 99);
 
         //Print for visual inspection
         System.out.println(printer);
