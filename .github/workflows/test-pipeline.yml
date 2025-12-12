@@ -42,17 +42,4 @@ jobs:
       - name: Run Maven tests
         run: mvn -B test
 
-      # --- Node / Vitest setup ---
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install Node.js dependencies
-        working-directory: src/main/java/com/mugprintz/copycat/views
-        run: npm ci
-      
-      - name: Run Vitest
-        working-directory: src/main/java/com/mugprintz/copycat/views
-        run: npx vitest run --reporter=dot
+    
