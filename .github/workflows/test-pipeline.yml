@@ -46,11 +46,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # or whatever version your project uses
+          node-version: '20'
           cache: 'npm'
 
       - name: Install Node.js dependencies
+        working-directory: ./views
         run: npm ci
 
       - name: Run Vitest
+        working-directory: ./views
         run: npx vitest run --reporter=dot
