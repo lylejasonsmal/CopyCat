@@ -48,11 +48,11 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-
+      
       - name: Install Node.js dependencies
-        working-directory: ./views
+        working-directory: src/main/java/com/mugprintz/copycat/views
         run: npm ci
-
+      
       - name: Run Vitest
-        working-directory: ./views
+        working-directory: src/main/java/com/mugprintz/copycat/views
         run: npx vitest run --reporter=dot
