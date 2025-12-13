@@ -1,0 +1,17 @@
+/* Import Montserrat including ExtraBold (800) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--primary-white-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+}
+
+h1{
+  font-size: var(--default-header-font-size);
+}

@@ -1,7 +1,8 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
-  <h1>CopyCat - Tigger</h1>
+  <router-view/>
 </template>
 
 <style scoped></style>
