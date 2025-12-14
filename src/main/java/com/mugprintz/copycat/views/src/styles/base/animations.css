@@ -1,0 +1,70 @@
+/* Spinner container */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-white-color);
+  border-top-color: var(--primary-green-color);
+  animation: spin 0.75s linear infinite;
+}
+
+.spinner.dark{
+  border: 2px solid var(--primary-white-color);
+  border-top-color: var(--primary-black-color);
+}
+
+/* Spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-overlay{
+  animation: gradient 10s ease infinite;
+  background: linear-gradient(45deg, var(--primary-green-color), var(--primary-white-color), var(--primary-white-color), var(--primary-white-color), var(--primary-white-color), var(--primary-green-color));
+  background-size:200% 200%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@keyframes gradient{
+  0%{
+    background-position: 0% 50%
+  }
+  50%{
+    background-position: 100% 50%
+  }
+  100%{
+    background-position: 0% 50%
+  }
+}
+
+.progress-ring {
+  --value: 0; /*default value*/
+  width: 33vh;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  position: relative;
+  transition: ease-in-out 0.3s;
+  background: conic-gradient(
+    from 0deg,
+    var(--primary-black-color) calc(var(--value) * 1%),
+    transparent 0
+  );
+}
+
+.progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: var(--primary-white-color, transparent);
+  border-radius: 50%;
+}

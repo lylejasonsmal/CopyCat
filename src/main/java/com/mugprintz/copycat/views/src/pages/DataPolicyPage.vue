@@ -4,6 +4,7 @@
     <p id="data-policy-message">
       Our Data Policy Aims To Ensure That Your Data Is Used Within Reasonable Boundaries And To Provided The Best Possible Service.
     </p>
+    <ProgressComponent :percentage=10></ProgressComponent>
   </div>
 </template>
 
@@ -15,4 +16,5 @@ p{
 }
 </style>
 <script setup lang="ts">
+import ProgressComponent from "@/components/ProgressComponent.vue";
 </script>
