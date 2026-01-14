@@ -1,5 +1,6 @@
 import {mount} from "@vue/test-utils";
 import DataPolicyPage from "@/pages/DataPolicyPage.vue";
+import Spinner from "@/components/Spinner.vue";
 
 describe("DatePolicyPage", ()=>{
   //Arrange
