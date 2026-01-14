@@ -17,7 +17,7 @@ public class PricingTier extends HasID {
         return this.priceToBeApplied; //return price
     }
 
-    public void calculatePrice(){
+    private void calculatePrice(){
         if (this.pagesToBePrinted >= 30) {
             this.priceToBeApplied = this.pagesToBePrinted * 1.25;
         }
