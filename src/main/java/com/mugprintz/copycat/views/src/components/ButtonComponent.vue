@@ -1,9 +1,9 @@
 <template>
-  <button id="button-component">{{ param.ButtonText }}</button>
+  <button id="button-component">{{ buttonText }}</button>
 </template>
 <script setup>
-const param = defineProps({
-  ButtonText: {
+defineProps({
+  buttonText: {
     type: String,
     required: true
   }});
