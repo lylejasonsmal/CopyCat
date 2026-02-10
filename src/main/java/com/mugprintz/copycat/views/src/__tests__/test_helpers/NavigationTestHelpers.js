@@ -3,11 +3,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router/index.js'
 import App from '../../App.vue'
 
-export function createTestRouter() {
+function createTestRouter() {
   return createRouter({ history: createWebHistory(), routes })
 }
 
-export async function CreateTestNavigationAsync() {
+export async function InitializeTestNavigationServiceAsync() {
   const router = createTestRouter()
   let Sut = mount(App, { global: { plugins: [router] } })
 

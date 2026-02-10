@@ -1,15 +1,16 @@
-import { CreateTestNavigationAsync } from "@/__tests__/test_helpers/NavigationTestHelpers.js";
+import { InitializeTestNavigationServiceAsync } from "@/__tests__/test_helpers/NavigationTestHelpers.js";
 import LandingPage from "@/pages/LandingPage.vue";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage.vue";
 import DataPolicyPage from "@/pages/DataPolicyPage.vue";
 import PrintingProgressPage from "@/pages/PrintingProgressPage.vue";
+import WelcomePage from "@/pages/WelcomePage.vue";
 
-let TestNavigation = null;
+let TestNavigationService = null;
 let Sut = null;
 
 async function SetupAsync(){
-  TestNavigation = await CreateTestNavigationAsync();
-  Sut = TestNavigation.Sut;
+  TestNavigationService = await InitializeTestNavigationServiceAsync();
+  Sut = TestNavigationService.Sut;
 }
 
 it('SHOULD render LandingPage at ["/"]', async () => {
@@ -17,7 +18,7 @@ it('SHOULD render LandingPage at ["/"]', async () => {
   await SetupAsync()
 
   //Act
-  await TestNavigation.NavigateToAsync('/')
+  await TestNavigationService.NavigateToAsync('/')
 
   //Assert
   expect(
@@ -30,7 +31,7 @@ it('SHOULD render PrivacyPolicyPage at ["/privacy-policy"]', async () => {
   await SetupAsync()
 
   //Act
-  await TestNavigation.NavigateToAsync('/privacy-policy')
+  await TestNavigationService.NavigateToAsync('/privacy-policy')
 
   //Assert
   expect(
@@ -43,7 +44,7 @@ it('SHOULD render DataPolicyPage at ["/data-policy"]', async () => {
   await SetupAsync()
 
   //Act
-  await TestNavigation.NavigateToAsync('/data-policy')
+  await TestNavigationService.NavigateToAsync('/data-policy')
 
   //Assert
   expect(
@@ -56,10 +57,21 @@ it('SHOULD render PrintingProgressPage at ["/printing-progress"]', async () => {
   await SetupAsync()
 
   //Act
-  await TestNavigation.NavigateToAsync('/printing-progress')
+  await TestNavigationService.NavigateToAsync('/printing-progress')
 
   //Assert
   expect(
     Sut.findComponent(PrintingProgressPage).exists()
   ).toBe(true)
+})
+
+it('SHOULD render WelcomePage at ["/welcome"]', async () => {
+  //Arrange
+  await SetupAsync()
+
+  //Act
+  await TestNavigationService.NavigateToAsync('/welcome')
+
+  //Assert
+  expect(Sut.findComponent(WelcomePage).exists()).toBe(true)
 })

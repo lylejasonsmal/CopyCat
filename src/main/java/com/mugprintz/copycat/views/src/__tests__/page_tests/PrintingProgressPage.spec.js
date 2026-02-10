@@ -7,7 +7,7 @@ describe("PrintingProgressPage", ()=>{
 
   it("SHOULD render printing page heading", ()=> {
     const printingPageHeading = sut.find("#printing-page-heading");
-    expect(printingPageHeading.text()).toContain("Printing")
+    expect(printingPageHeading.text()).toBe("Printing")
 
     const spinner = sut.findComponent(Spinner);
     expect(spinner.exists()).toBe(true)

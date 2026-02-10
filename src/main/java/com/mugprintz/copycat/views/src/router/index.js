@@ -3,9 +3,11 @@ import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage.vue";
 import DataPolicyPage from "@/pages/DataPolicyPage.vue";
 import PrintingProgressPage from "@/pages/PrintingProgressPage.vue";
 import LandingPage from "@/pages/LandingPage.vue";
+import WelcomePage from "@/pages/WelcomePage.vue";
 
 export const routes = [
   { path: '/', name: "LandingPage", component: LandingPage },
+  { path: '/welcome', name: "WelcomePage", component: WelcomePage },
   { path: '/privacy-policy', name: "PrivacyPolicyPage", component: PrivacyPolicyPage },
   { path: '/data-policy', name: "DataPolicyPage", component: DataPolicyPage },
   { path: '/printing-progress', name: "PrintingProgressPage", component: PrintingProgressPage }
