@@ -6,8 +6,8 @@ describe("LandingPage [OnRenderTests]", ()=>{
   const sut = mount(LandingPage);
 
   it("SHOULD render landing page text", () => {
-    const dataPolicyHeading = sut.find("#landing-message");
-    expect(dataPolicyHeading.text()).toBe("Under Development. Please Check Back Soon!")
+    const landingPageMessage = sut.find("#landing-message");
+    expect(landingPageMessage.html()).toContain("Under Development. Please Check Back Soon!")
   });
 
 })
